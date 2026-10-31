@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
+<script src="/amatu.js"></script>
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>/* phones + small tablets: whole app at 88% (layout widens to fill the screen); max-scale stops iOS zooming into inputs */
@@ -927,7 +928,7 @@ function gateView() {
     <label class="check"><input type="checkbox" id="remember" checked> Tetap masuk di perangkat ini</label>
     <button class="gate-btn" type="submit">Masuk</button>
     <div class="gate-err" id="gate-err" role="alert"></div>
-    <p class="gate-note">Nama pengguna dan PIN sama dengan <a href="https://liemyo.github.io/planner/">Planner</a>. Nama yang belum pernah dipakai akan membuat akun baru.</p>
+    <p class="gate-note">Nama pengguna dan PIN sama dengan <a href="https://amatu-id.github.io/planner/">Planner</a>. Nama yang belum pernah dipakai akan membuat akun baru.</p>
   </form></div>`;
 }
 function syncMask() {
@@ -1364,7 +1365,7 @@ async function exportPdf(d, n) { // real PDF file (jsPDF), long notes flow over 
   if (d.type === 'list') for (const i of d.items || []) line((i.d ? '[x] ' : '[  ] ') + clean(i.t), 11, 16, 'normal', i.d ? 130 : 20);
   else for (const p of clean(d.body).split('\n')) line(p || ' ', 11, 16);
   const pages = doc.getNumberOfPages();
-  for (let i = 1; i <= pages; i++) { doc.setPage(i); doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(150); doc.text(`Notes - liemyo.github.io/notes`, M, H - 25); doc.text(`Hal ${i}/${pages}`, W - M, H - 25, { align: 'right' }); }
+  for (let i = 1; i <= pages; i++) { doc.setPage(i); doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(150); doc.text(`Notes - amatu-id.github.io/notes`, M, H - 25); doc.text(`Hal ${i}/${pages}`, W - M, H - 25, { align: 'right' }); }
   doc.save(fileName(d) + '.pdf');
 }
 const fileName = d => (d.title || 'catatan').replace(/[^\p{L}\p{N} _-]+/gu, '').replace(/\s+/g, ' ').trim().slice(0, 50) || 'catatan';
